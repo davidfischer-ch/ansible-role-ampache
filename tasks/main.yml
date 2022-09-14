@@ -40,7 +40,7 @@
         name: '{{ item }}'
         owner: www-data
         group: www-data
-        mode: 0755
+        mode: '755'
         recurse: no
         state: directory
       loop:
@@ -63,7 +63,7 @@
         dest: /usr/share/ampache/www2/{{ item.path }}
         owner: root
         group: root
-        mode: 0644
+        mode: '644'
       loop:
         - { name: 'ampache.cfg.{{ ampache_config_version|int }}.php', path: 'config/ampache.cfg.php' }
         - { name: 'channel-htaccess', path: 'channel/.htaccess' }
@@ -88,7 +88,7 @@
         dest: /etc/apache2/sites-available/ampache.conf
         owner: root
         group: root
-        mode: 0644
+        mode: '644'
       notify: reload apache
 
     - name: Enable Ampache site
